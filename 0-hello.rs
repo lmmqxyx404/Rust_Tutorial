@@ -1,5 +1,5 @@
-fn mian(){
-    println!("hello world");
+fn main(){
+    println!("hello rust");
 }
 
 // This is my first code for rust.
