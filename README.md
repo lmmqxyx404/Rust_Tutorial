@@ -4,3 +4,7 @@ The most significant advantage for rust is safe.
 
 # 0.hello
 The first taste for rust.
+
+# 1.variable
+
+# 2.loop
