@@ -1,3 +1,11 @@
+/*
+ * @Author: Lmmqxyx
+ * @Date: 2022-04-07 18:07:57
+ * @LastEditors: 
+ * @LastEditTime: 2022-04-11 11:15:10
+ * @FilePath: \Rust_Tutorial\src\simple\ch_3_convert.rs
+ * @Description: 
+ */
 fn char_to_u8(a: char) -> u8 {
     a as u8
 }
@@ -5,6 +13,7 @@ fn char_to_u8(a: char) -> u8 {
 fn i32_to_char(a:i32)->char {
     a as u8 as char
 }
+
 #[test]
 fn var() {
     let mut a = 'a';
