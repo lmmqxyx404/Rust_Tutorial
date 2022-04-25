@@ -6,3 +6,4 @@ mod ch_4_struct;
 mod ch_5_enum;
 mod ch_6_constants;
 mod ch_7_function;
+mod ch_8_rc;
