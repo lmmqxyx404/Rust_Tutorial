@@ -14,6 +14,9 @@ fn i32_to_char(a:i32)->char {
     a as u8 as char
 }
 
+fn string_to_char_array(s:String)->Vec<char>{
+    vec!['a']
+}
 #[test]
 fn var() {
     let mut a = 'a';
