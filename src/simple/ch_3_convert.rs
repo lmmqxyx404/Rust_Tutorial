@@ -1,8 +1,8 @@
 /*
  * @Author: Lmmqxyx
  * @Date: 2022-04-07 18:07:57
- * @LastEditors: 
- * @LastEditTime: 2022-04-11 11:15:10
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-02 23:56:44
  * @FilePath: \Rust_Tutorial\src\simple\ch_3_convert.rs
  * @Description: 
  */
@@ -14,7 +14,7 @@ fn i32_to_char(a:i32)->char {
     a as u8 as char
 }
 
-fn string_to_char_array(s:String)->Vec<char>{
+fn string_to_char_array(_s:String)->Vec<char>{
     vec!['a']
 }
 #[test]
