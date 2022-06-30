@@ -35,4 +35,19 @@ fn middle_1_deref() {
     let c = My_Box::new(a);
     assert_eq!(a, *b);
     assert_eq!(a, *c);
+
+    // copy a reference
+    let a = 45i32;
+    let b = &a;
+    let c = b;
+    assert_eq!(*c, 45);
+    let d = &b;
+    assert_eq!(**d, 45);
+    /// because the  original variable is not mutable.So it can not
+    /// be referred as mutable.
+    // let asd = &mut a;
+    let mut a=45;
+    let asd =&mut a;
+    *asd=*asd+60;
+    assert_eq!(*asd, 105);
 }
