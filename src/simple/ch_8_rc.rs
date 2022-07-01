@@ -6,7 +6,7 @@
  * @FilePath: \Rust_Tutorial\src\simple\ch_8_rc.rs
  * @Description:
  */
-use std::rc::Rc;
+use std::{rc::Rc, cell::RefCell, collections::btree_map::Values};
 #[test]
 fn hello() {
     let word = "hello world".to_string();
@@ -28,4 +28,11 @@ fn hello() {
         println!("rc_a is dropped out of scope ");
     }
     // assert_eq!("hello world", word);
+    let a=5;
+    let b=RefCell::new(a);
+    *b.borrow_mut()+=14;
+    assert_eq!(b.into_inner(),19);
+    let b=RefCell::new(14);
+    *b.borrow_mut()+=14;
+    assert_eq!(b.into_inner(),28)
 }

@@ -42,12 +42,13 @@ fn middle_1_deref() {
     let c = b;
     assert_eq!(*c, 45);
     let d = &b;
+    // assert_eq!(*d, 45);
     assert_eq!(**d, 45);
     /// because the  original variable is not mutable.So it can not
     /// be referred as mutable.
-    // let asd = &mut a;
-    let mut a=45;
-    let asd =&mut a;
-    *asd=*asd+60;
+    /// let asd = &mut a;
+    let mut a = 45;
+    let asd = &mut a;
+    *asd = *asd + 60;
     assert_eq!(*asd, 105);
 }
