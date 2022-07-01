@@ -19,7 +19,13 @@ fn multiply<'a>(first: &'a i32, second: &'a i32) -> i32 {
 // `<'a: 'b, 'b>` reads as lifetime `'a` is at least as long as `'b`.
 // Here, we take in an `&'a i32` and return a `&'b i32` as a result of coercion.
 fn choose_first<'a: 'b, 'b>(first: &'a i32, second: &'b i32) -> &'b i32 {
-    first
+    // The return lifetime is associated with annotation.
+    // second
+    if (*first == *second) {
+        second
+    } else {
+        first
+    }
 }
 #[test]
 fn lifetime() {

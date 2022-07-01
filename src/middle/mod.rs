@@ -10,3 +10,4 @@ mod ch_0_hello;
 mod ch_1_deref;
 mod ch_2_lifetime;
 mod ch_3_trait;
+mod ch_4_macro;

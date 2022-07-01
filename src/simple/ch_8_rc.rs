@@ -34,5 +34,10 @@ fn hello() {
     assert_eq!(b.into_inner(),19);
     let b=RefCell::new(14);
     *b.borrow_mut()+=14;
-    assert_eq!(b.into_inner(),28)
+    assert_eq!(b.into_inner(),28);
+    /* 
+    let c=Rc::new(b);
+    *c.borrow_mut()+=2;
+    assert_eq!(c.into_inner(),30);
+    */
 }
