@@ -13,6 +13,7 @@ macro_rules! say_Hello {
     };
 }
 
+// Here is a designator expr ident
 macro_rules! calculate {
     (eval $ee:expr) => {{
         {
@@ -21,8 +22,20 @@ macro_rules! calculate {
         }
     }};
 }
+
+macro_rules! create_function {
+    ($func_name:ident) => {
+        fn $func_name() -> i32 {
+            println!("This is a function named {:?}", stringify!($func_name));
+            14
+        }
+    };
+}
+
+create_function!(my);
 #[test]
 fn middle_4_macro() {
     say_Hello!();
     calculate!(eval 1+2);
+    assert_eq!(14, my());
 }
