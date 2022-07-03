@@ -1,3 +1,11 @@
+/*
+ * @Author: Lmmqxyx
+ * @Date: 2022-07-03 23:56:11
+ * @LastEditors: 
+ * @LastEditTime: 2022-07-03 23:58:50
+ * @FilePath: \Rust_Tutorial\src\middle\ch_3_trait.rs
+ * @Description: 
+ */
 trait Summary {
     fn summarize(&self) -> String;
 }
@@ -25,6 +33,8 @@ impl Summary for Tweet {
         format!("{}: {}", self.username, self.content)
     }
 }
+
+// trait can bind function
 #[test]
 fn middle_3_trait() {
     let news=NewsArticle{
