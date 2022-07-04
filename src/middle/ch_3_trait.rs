@@ -1,10 +1,10 @@
 /*
  * @Author: Lmmqxyx
  * @Date: 2022-07-03 23:56:11
- * @LastEditors: 
- * @LastEditTime: 2022-07-03 23:58:50
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-07-04 23:46:48
  * @FilePath: \Rust_Tutorial\src\middle\ch_3_trait.rs
- * @Description: 
+ * @Description:
  */
 trait Summary {
     fn summarize(&self) -> String;
@@ -22,6 +22,7 @@ impl Summary for NewsArticle {
         format!("{}, --by({})", self.headline, self.author)
     }
 }
+
 struct Tweet {
     username: String,
     content: String,
@@ -34,14 +35,21 @@ impl Summary for Tweet {
     }
 }
 
+fn notify_1(item: impl Summary, item2: impl Summary) {
+    println!("Breaking news {}", item.summarize());
+}
+
+fn notify_2<T: Summary>(item: T, item2: T) {
+    println!("Breaking news notify2 {}", item.summarize());
+}
 // trait can bind function
 #[test]
 fn middle_3_trait() {
-    let news=NewsArticle{
-        headline:String::from("ceshiyixia"),
-        location:String::from("hefei"),
-        author:String::from("si"),
-        content:String::from("zhaiyaoshifen"),
+    let news = NewsArticle {
+        headline: String::from("ceshiyixia"),
+        location: String::from("hefei"),
+        author: String::from("si"),
+        content: String::from("zhaiyaoshifen"),
     };
-    println!("{}",news.summarize());
+    println!("{}", news.summarize());
 }
