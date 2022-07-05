@@ -2,7 +2,7 @@
  * @Author: Lmmqxyx
  * @Date: 2022-07-03 23:56:11
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-07-04 23:46:48
+ * @LastEditTime: 2022-07-05 23:59:17
  * @FilePath: \Rust_Tutorial\src\middle\ch_3_trait.rs
  * @Description:
  */
@@ -41,6 +41,14 @@ fn notify_1(item: impl Summary, item2: impl Summary) {
 
 fn notify_2<T: Summary>(item: T, item2: T) {
     println!("Breaking news notify2 {}", item.summarize());
+}
+fn notify_3<T: Summary>(item: T, item2: T, item3: i32) -> Box<dyn Summary> {
+    println!("Breaking news notify2 {}", item.summarize());
+    if item3 > 1 {
+        Box::new(item)
+    } else {
+        Box::new(item2)
+    }
 }
 // trait can bind function
 #[test]
