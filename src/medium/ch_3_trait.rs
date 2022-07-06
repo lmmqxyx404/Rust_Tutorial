@@ -2,10 +2,17 @@
  * @Author: Lmmqxyx
  * @Date: 2022-07-03 23:56:11
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-07-05 23:59:17
+ * @LastEditTime: 2022-07-06 06:44:20
  * @FilePath: \Rust_Tutorial\src\middle\ch_3_trait.rs
  * @Description:
  */
+
+/// In my opinion trait is used for define operations by add different function.
+/// And a function set can be considered to be a trait.
+/// so a trait can be inherited from another trait.
+/// also trait can used for function arguments and returned value.
+/// pay attention to the case that a trait bounds the returned value.
+use std::fmt::{Debug, Display};
 trait Summary {
     fn summarize(&self) -> String;
 }
@@ -42,12 +49,26 @@ fn notify_1(item: impl Summary, item2: impl Summary) {
 fn notify_2<T: Summary>(item: T, item2: T) {
     println!("Breaking news notify2 {}", item.summarize());
 }
-fn notify_3<T: Summary>(item: T, item2: T, item3: i32) -> Box<dyn Summary> {
-    println!("Breaking news notify2 {}", item.summarize());
-    if item3 > 1 {
-        Box::new(item)
+fn notify_3<T, U>(item: T, item2: U, item3: i32) -> Box<dyn Summary>
+where
+    T: Summary + Display,
+    U: Clone + Debug,
+{
+    // println!("Breaking news notify2 {}", item.summarize());
+    if item3 > 2 {
+        Box::new(Tweet {
+            username: String::from("ceshiyixia"),
+            content: String::from("hefei"),
+            reply: false,
+            retweet: false,
+        })
     } else {
-        Box::new(item2)
+        Box::new(NewsArticle {
+            headline: String::from("ceshiyixia"),
+            location: String::from("hefei"),
+            author: String::from("si"),
+            content: String::from("zhaiyaoshifen"),
+        })
     }
 }
 // trait can bind function

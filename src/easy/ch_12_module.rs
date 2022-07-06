@@ -2,8 +2,8 @@
  * @Author: Lmmqxyx
  * @Date: 2022-05-16 17:40:40
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-16 23:44:44
- * @FilePath: \Rust_Tutorial\src\simple\ch_12_module.rs
+ * @LastEditTime: 2022-07-06 06:51:24
+ * @FilePath: \Rust_Tutorial\src\easy\ch_12_module.rs
  * @Description:
  */
 mod my_mod {
@@ -24,7 +24,7 @@ mod my_mod {
             println!("called `my_mod::nested::function()`");
         }
 
-        pub(in crate::simple::ch_12_module::my_mod) fn public_function_in_my_mod() {
+        pub(in crate::easy::ch_12_module::my_mod) fn public_function_in_my_mod() {
             println!("hello");
             public_function_in_nested();
         }

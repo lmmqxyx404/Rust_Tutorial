@@ -37,8 +37,8 @@ fn valid() {
     type WE = WebEvent;
     let p = WE::Paste(String::from("hello"));
     // path
-    use crate::simple::ch_5_enum::Status::{Poor, Rich};
-    use crate::simple::ch_5_enum::Work::*;
+    use crate::easy::ch_5_enum::Status::{Poor, Rich};
+    use crate::easy::ch_5_enum::Work::*;
     let me = Person {
         status: Poor,
         work: Engineer,
