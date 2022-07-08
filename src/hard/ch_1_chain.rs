@@ -2,11 +2,11 @@
  * @Author: Lmmqxyx
  * @Date: 2022-04-07 18:07:48
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-07-07 22:55:18
+ * @LastEditTime: 2022-07-07 22:57:45
  * @FilePath: \Rust_Tutorial\src\hard\ch_1_chain.rs
  * @Description:
  */
-// normal chain
+// normal chain call
 #[derive(Debug)]
 struct Student {
     name: String,
@@ -14,8 +14,11 @@ struct Student {
 }
 
 impl Student {
-    fn new(name: String, age: u8) -> Student {
-        Student { name, age }
+    fn new() -> Student {
+        Student {
+            name: "xuji".to_string(),
+            age: 11,
+        }
     }
     fn introduce_myself(&self) {
         println!("{:?}", self);
@@ -31,6 +34,6 @@ impl Student {
 }
 #[test]
 fn ch_1_chain() {
-    let xuji = Student::new(String::from("xuji"), 11);
+    let xuji = Student::new();
     xuji.say_name().say_age().introduce_myself();
 }
