@@ -8,3 +8,4 @@
  */
 mod ch_0_hello;
 mod ch_1_chain;
+mod ch_2_vec_string;
