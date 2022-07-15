@@ -7,7 +7,7 @@
  * @Description:
  */
 #[test]
-fn ch_2_vec_string() {
+fn ch_2_vec_iter() {
     let a = vec![String::from("hello"), String::from("world")];
     let sum = &a.iter().fold(String::from(""), |acc, x| acc + " " + x);
     assert_eq!(sum, " hello world")
