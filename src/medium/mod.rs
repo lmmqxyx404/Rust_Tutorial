@@ -13,3 +13,4 @@ mod ch_3_trait;
 mod ch_4_macro;
 mod ch_5_trait_more;
 mod ch_6_attribute;
+mod ch_7_thread;

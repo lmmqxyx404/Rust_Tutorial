@@ -6,7 +6,19 @@
  * @FilePath: \Rust_Tutorial\src\middle\ch_0_hello.rs
  * @Description:
  */
+use std::{thread, time::Duration};
 #[test]
 fn middle_thread() {
+    let handle = thread::spawn(|| {
+        for i in 0..10 {
+            println!("{} from the spawned thread", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+    for i in 1..5 {
+        println!("main thread {}", i);
+        thread::sleep(Duration::from_millis(100));
+    }
     println!("The module is about middle knowledge");
+    handle.join().unwrap();
 }
