@@ -15,7 +15,7 @@ fn middle_thread() {
             thread::sleep(Duration::from_millis(1));
         }
     });
-    for i in 1..5 {
+    for i in 'a'..'f' {
         println!("main thread {}", i);
         thread::sleep(Duration::from_millis(100));
     }
