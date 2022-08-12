@@ -28,7 +28,7 @@ fn middle_1_deref() {
     let c = "ccccc";
     let mut calias = &c;
     calias = &"ddd";
-    println!("This is middle {}", *calias);
+    println!("This is middle {}", calias);
     // imply the trait deref for T so that T can be dereferenced.
     let a = 5;
     let b = Box::new(a);

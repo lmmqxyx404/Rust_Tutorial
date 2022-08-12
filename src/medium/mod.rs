@@ -14,3 +14,6 @@ mod ch_4_macro;
 mod ch_5_trait_more;
 mod ch_6_attribute;
 mod ch_7_thread;
+
+// this chapter is very impotant.
+mod ch_8_refcell;
