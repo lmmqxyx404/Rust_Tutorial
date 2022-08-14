@@ -8,6 +8,8 @@ mod ch_6_constants;
 mod ch_7_function;
 mod ch_8_rc;
 mod ch_9_vector;
-mod ch_10_String;
+mod ch_10_string;
+
+#[allow(non_snake_case)]
 mod ch_11_HashMap;
 mod ch_12_module;

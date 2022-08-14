@@ -7,12 +7,14 @@
  * @Description:
  */
 // normal chain call
+#[allow(unused)]
 #[derive(Debug)]
 struct Student {
     name: String,
     age: u8,
 }
 
+#[allow(unused)]
 impl Student {
     fn new() -> Student {
         Student {

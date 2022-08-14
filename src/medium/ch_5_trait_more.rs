@@ -7,8 +7,6 @@
  * @Description: 
  */
 /// this is about trait with associated type
-struct my_num;
-
 
 #[test]
 fn middle_0(){

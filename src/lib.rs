@@ -6,6 +6,9 @@
  * @FilePath: \Rust_Tutorial\src\lib.rs
  * @Description: 
  */
+#[allow(unused)]
 pub mod easy;
+#[allow(unused)]
 pub mod medium;
+#[allow(unused)]
 pub mod hard;

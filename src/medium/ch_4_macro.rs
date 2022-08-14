@@ -6,7 +6,7 @@
  * @FilePath: \Rust_Tutorial\src\middle\ch_0_hello.rs
  * @Description:
  */
-
+#[allow(unused)]
 macro_rules! say_Hello {
     () => {
         println!("hello rust macro");
@@ -14,6 +14,7 @@ macro_rules! say_Hello {
 }
 
 // Here is a designator expr ident
+#[allow(unused)]
 macro_rules! calculate {
     (eval $ee:expr) => {{
         {
@@ -25,6 +26,7 @@ macro_rules! calculate {
 
 macro_rules! create_function {
     ($func_name:ident) => {
+        #[allow(unused)]
         fn $func_name() -> i32 {
             println!("This is a function named {:?}", stringify!($func_name));
             14

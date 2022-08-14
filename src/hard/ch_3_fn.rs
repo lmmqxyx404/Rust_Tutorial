@@ -6,6 +6,7 @@
  * @FilePath: \Rust_Tutorial\src\hard\ch_0_hello.rs
  * @Description:
  */
+#[allow(unused)]
 fn do_twice<F>(mut fnc: F)
 where
     F: FnMut(),
