@@ -7,15 +7,15 @@
  * @Description:
  */
 use std::ops::Deref;
-struct My_Box<T>(T);
+struct MyBox<T>(T);
 
-impl<T> My_Box<T> {
-    fn new(x: T) -> My_Box<T> {
-        My_Box(x)
+impl<T> MyBox<T> {
+    fn new(x: T) -> MyBox<T> {
+        MyBox(x)
     }
 }
 
-impl<T> Deref for My_Box<T> {
+impl<T> Deref for MyBox<T> {
     type Target = T;
 
     fn deref(&self) -> &T {
@@ -32,7 +32,7 @@ fn middle_1_deref() {
     // imply the trait deref for T so that T can be dereferenced.
     let a = 5;
     let b = Box::new(a);
-    let c = My_Box::new(a);
+    let c = MyBox::new(a);
     assert_eq!(a, *b);
     assert_eq!(a, *c);
 

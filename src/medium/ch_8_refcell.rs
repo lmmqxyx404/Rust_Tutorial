@@ -1,11 +1,12 @@
 use std::{cell::RefCell, rc::Rc};
 
+#[allow(unused)]
 struct TreeNode {
     val: i32,
     /* left: Option<Rc<RefCell<TreeNode>>>,
     right: Option<Rc<RefCell<TreeNode>>>, */
 }
-
+#[allow(unused)]
 impl TreeNode {
     fn new(val: i32) -> Self {
         TreeNode {
@@ -41,6 +42,8 @@ fn ch_8_refcell() {
     // get the reference of a tree root
     let node = TreeNode::new(12);
     let aa = Some(Rc::new(RefCell::new(node)));
+    // can not get the node 42 ownership
+    // assert_eq!(12,node.val);
     let aval = aa.as_ref().unwrap().borrow().val;
     assert_eq!(12, aval);
     let bb=aa.unwrap();

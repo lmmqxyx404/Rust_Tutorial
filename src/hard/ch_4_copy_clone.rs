@@ -1,10 +1,10 @@
 #[derive(Debug)]
-struct Node {
-    val: i32,
+pub struct Node {
+    pub val: i32,
 }
 
 impl Node {
-    fn new(val: i32) -> Self {
+    pub fn new(val: i32) -> Self {
         Node { val }
     }
 }

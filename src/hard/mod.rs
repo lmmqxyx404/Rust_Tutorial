@@ -10,4 +10,4 @@ mod ch_0_hello;
 mod ch_1_chain;
 mod ch_2_vec_iter;
 mod ch_3_fn;
-mod ch_4_copy_clone;
+pub mod ch_4_copy_clone;
