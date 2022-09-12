@@ -21,3 +21,4 @@ The significant difference is the label.
 
 
 ## 3. hard
+Introduce some advanced traits in rust besides concurrency.
