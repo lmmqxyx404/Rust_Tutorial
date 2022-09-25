@@ -6,6 +6,10 @@ The most significant advantage for rust is safe.
 Download visual studio and visual studio code if your computer system is windows.
 It could be a better choice to edit the config file in the directory named .cargo for a better experience.
 
+# features
+## 1. control the code by oneself and control each variable and so on.
+
+
 # The project is temporarily composed of three parts
 ## 1. easy
 ### 0.hello
@@ -21,3 +25,4 @@ The significant difference is the label.
 
 
 ## 3. hard
+### concurrenccy
