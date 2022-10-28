@@ -57,13 +57,26 @@ mod tests {
         let (tx, rx) = mpsc::channel();
         let handler = thread::spawn(move || {
             for i in 1..10 {
+                println!("sended: {}", i);
                 tx.send(i * i).unwrap();
-                thread::sleep(Duration::from_millis(500));
+                // thread::sleep(Duration::from_millis(2000));
             }
         });
 
         for i in 1..10 {
-            println!("{}", rx.recv().unwrap());
+            thread::sleep(Duration::from_millis(1000));
+            println!("rec:{}", rx.recv().unwrap());
         }
+    }
+
+    #[test]
+    fn concunrency_5() {
+        use std::sync::Mutex;
+        let m = Mutex::new(5);
+        {
+            let mut num = m.lock().unwrap();
+            *num = 100;
+        }
+        println!("mu ={:?}", m);
     }
 }
