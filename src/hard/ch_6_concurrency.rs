@@ -80,7 +80,7 @@ mod tests {
     }
 
     #[test]
-    fn concunrency_6() {
+    fn concunrency_6_mutex_arc() {
         let counter = Arc::new(Mutex::new(0));
         let mut handles = vec![];
 
