@@ -14,3 +14,4 @@ pub mod ch_4_copy_clone;
 pub mod ch_5_list_node;
 pub mod ch_6_concurrency;
 pub mod ch_7_unsafe;
+pub mod ch_8_pointer;
