@@ -15,3 +15,4 @@ pub mod ch_5_list_node;
 pub mod ch_6_concurrency;
 pub mod ch_7_unsafe;
 pub mod ch_8_pointer;
+pub mod ch_9_std_misc;
