@@ -56,5 +56,5 @@ fn hello() {
 
     let c = Rc::new(RefCell::new(45));
     *c.borrow_mut() = 2;
-    assert_eq!((*c).take(),2);
+    assert_eq!((*c).take(), 2);
 }

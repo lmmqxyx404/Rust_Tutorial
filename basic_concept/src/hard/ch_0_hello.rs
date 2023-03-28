@@ -4,7 +4,7 @@
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2022-07-07 22:48:27
  * @FilePath: \Rust_Tutorial\src\hard\ch_0_hello.rs
- * @Description: 
+ * @Description:
  */
 #[test]
 fn hello() {

@@ -13,5 +13,5 @@ fn main() {
     // let word = "hello world";
     println!("hello world {}", YEAR);
     println!("language is {}", LANGUAGE);
-    assert_eq!("RUST",LANGUAGE);
+    assert_eq!("RUST", LANGUAGE);
 }

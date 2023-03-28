@@ -22,30 +22,30 @@ impl Point {
 }
 
 struct Rectangle {
-    left_top:Point,
-    right_bottom:Point,
+    left_top: Point,
+    right_bottom: Point,
 }
 
 impl Rectangle {
     // calculate area
     fn area(&self) -> f64 {
-        let Point{x,y}=self.left_top;
-        let Point{x:x2,y:y2}=self.right_bottom;
-        ((x-x2)*(y-y2)).abs()
+        let Point { x, y } = self.left_top;
+        let Point { x: x2, y: y2 } = self.right_bottom;
+        ((x - x2) * (y - y2)).abs()
     }
     // calculate perimeter
     fn perimeter(&self) -> f64 {
-        let Point{x,y}=self.left_top;
-        let Point{x:x2,y:y2}=self.right_bottom;
-        ((x-x2).abs()+(y-y2).abs())*2.0
+        let Point { x, y } = self.left_top;
+        let Point { x: x2, y: y2 } = self.right_bottom;
+        ((x - x2).abs() + (y - y2).abs()) * 2.0
     }
 }
 #[test]
 fn main() {
     // let word = "hello world";
-    let rect = Rectangle{
+    let rect = Rectangle {
         left_top: Point::origin(),
-        right_bottom: Point::new(3.0,5.0)
+        right_bottom: Point::new(3.0, 5.0),
     };
     assert_eq!(rect.area(), 15.0);
     assert_eq!(rect.perimeter(), 16.0);

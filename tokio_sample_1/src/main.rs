@@ -1,9 +1,9 @@
-use tokio::{self, runtime::Runtime, time};
 use chrono::Local;
 use std::thread;
+use tokio::{self, runtime::Runtime, time};
 
 fn now() -> String {
-  Local::now().format("%F %T").to_string()
+    Local::now().format("%F %T").to_string()
 }
 
 fn main() {
@@ -14,8 +14,8 @@ fn main() {
 
     // 生成的异步任务将放入当前的runtime上下文中执行
     tokio::spawn(async {
-      time::sleep(time::Duration::from_secs(5)).await;
-      println!("task1 sleep over: {}", now());
+        time::sleep(time::Duration::from_secs(5)).await;
+        println!("task1 sleep over: {}", now());
     });
 
     // 释放runtime上下文，这并不会删除runtime
@@ -24,8 +24,8 @@ fn main() {
     // 可以再次进入runtime
     let guard2 = rt.enter();
     tokio::spawn(async {
-      time::sleep(time::Duration::from_secs(4)).await;
-      println!("task2 sleep over: {}", now());
+        time::sleep(time::Duration::from_secs(4)).await;
+        println!("task2 sleep over: {}", now());
     });
 
     drop(guard2);

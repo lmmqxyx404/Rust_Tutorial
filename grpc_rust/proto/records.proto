@@ -1,11 +1,13 @@
 syntax="proto3";
 
+import "google/protobuf/empty.proto";
 package records;
 
 // 1.Service
 
 service Recorder {
-    rpc SendMessage(RecordRequest) returns (RecordResponse);
+    rpc SayHello(RecordRequest) returns (RecordResponse);
+    rpc SaySecret(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 
 // 2. xxRequest

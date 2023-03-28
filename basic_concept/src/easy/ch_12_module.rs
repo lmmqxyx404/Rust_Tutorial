@@ -60,5 +60,4 @@ fn hello() {
     my_mod::nested::function();
     my_mod::call_public_function_in_my_mod();
     my_mod::public_function_in_crate();
-
 }

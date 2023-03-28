@@ -46,8 +46,8 @@ fn ch_8_refcell() {
     // assert_eq!(12,node.val);
     let aval = aa.as_ref().unwrap().borrow().val;
     assert_eq!(12, aval);
-    let bb=aa.unwrap();
-    let dd=&*bb.borrow();
+    let bb = aa.unwrap();
+    let dd = &*bb.borrow();
 
     // let aval=aa.as_ref().b;
     // let dd = aa;

@@ -40,7 +40,6 @@ fn var() {
     assert_eq!(a, i32_to_char(97));
     assert_eq!(1, std::mem::size_of_val(&(a as u8)));
 
-    
     let p: qq = pp {}.into();
     let q = qq { qq: 32 };
     assert_eq!(q.qq, p.qq);

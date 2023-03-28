@@ -4,11 +4,11 @@
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2022-07-06 03:52:50
  * @FilePath: \Rust_Tutorial\src\middle\ch_5_trait_more.rs
- * @Description: 
+ * @Description:
  */
 /// this is about trait with associated type
 
 #[test]
-fn middle_0(){
+fn middle_0() {
     assert!(true)
 }

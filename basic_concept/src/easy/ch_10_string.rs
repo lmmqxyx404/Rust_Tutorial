@@ -4,23 +4,23 @@
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2022-05-03 23:59:38
  * @FilePath: \Rust_Tutorial\src\simple\ch_10_string.rs
- * @Description: 
+ * @Description:
  */
 #[test]
 fn hello() {
-    let p: &'static str="Hello world madam!";
-    println!("{}",p);
+    let p: &'static str = "Hello world madam!";
+    println!("{}", p);
     for word in p.split_whitespace().rev() {
-        println!("> {}",word);
+        println!("> {}", word);
     }
-    let mut chars=p.chars().collect::<Vec<char>>();
+    let mut chars = p.chars().collect::<Vec<char>>();
     chars.sort();
     chars.dedup();
-    let mut string =String::new();
+    let mut string = String::new();
     for c in chars {
         string.push(c);
         string.push_str(", ");
-        println!("{}",c);
+        println!("{}", c);
     }
-    println!("{}",string);
+    println!("{}", string);
 }

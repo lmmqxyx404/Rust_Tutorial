@@ -4,7 +4,7 @@
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2022-04-11 11:29:52
  * @FilePath: \Rust_Tutorial\src\simple\ch_2_loop.rs
- * @Description: 
+ * @Description:
  *  the loops must be annotated with some 'label, and the label must be passed to the break/continue statement.
  */
 fn testloop() -> char {
