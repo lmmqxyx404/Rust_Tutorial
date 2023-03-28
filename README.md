@@ -27,3 +27,7 @@ The significant difference is the label.
 ## 3. hard
 ### concurrenccy
 Introduce some advanced traits in rust besides concurrency.
+
+# about grpc_rust
+## requisition
+cmake tools could not be omitted.
