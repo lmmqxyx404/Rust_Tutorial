@@ -31,3 +31,5 @@ Introduce some advanced traits in rust besides concurrency.
 # about grpc_rust
 ## requisition
 cmake tools could not be omitted.
+
+## can import remote package
