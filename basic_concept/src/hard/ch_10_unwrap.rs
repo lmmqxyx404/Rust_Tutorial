@@ -1,3 +1,5 @@
+use std::fmt::Error;
+
 fn convert_by_question_mark(flag: i32) -> Result<i32, i64> {
     if flag % 2 > 0 {
         Err(64)
@@ -17,4 +19,8 @@ fn test() {
     let p = hello();
     assert_eq!(p.is_err(), true);
     assert_eq!(res.err().unwrap(), 64);
+
+    let pp: Result<u8, Error> = Ok(4);
+    let qq = Some(4);
+    assert_eq!(pp.unwrap(), qq.unwrap());
 }

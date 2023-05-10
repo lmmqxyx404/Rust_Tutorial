@@ -33,3 +33,9 @@ Introduce some advanced traits in rust besides concurrency.
 cmake tools could not be omitted.
 
 ## can import remote package
+
+# about tokio
+## When not to use use tokio
+  - Reading a lot of files. Operating system generally doesn't provide asynchronous file APIs.
+  - Just sending a single web request
+  - Speeding up CPU-bound computation

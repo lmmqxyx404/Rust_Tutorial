@@ -8,4 +8,11 @@
 
 # add some cargo projects.
 [workspace]
-members = ["basic_concept", "tokio_sample_1", "grpc_rust", "rust_quiz"]
+members = [
+    "basic_concept",
+    "tokio_sample_1",
+    "grpc_rust",
+    "rust_quiz",
+    "tokio_stream",
+    "tokio_redis_mini",
+]
