@@ -39,3 +39,10 @@ cmake tools could not be omitted.
   - Reading a lot of files. Operating system generally doesn't provide asynchronous file APIs.
   - Just sending a single web request
   - Speeding up CPU-bound computation
+
+## common c/s programm routes
+### server 
+use bind() to bind a specific port.
+
+### client
+use connect() to connect a remote socket.
