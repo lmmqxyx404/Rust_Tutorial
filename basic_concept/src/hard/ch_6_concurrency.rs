@@ -26,9 +26,10 @@ mod tests {
         let handler = thread::spawn(|| {
             for i in 1..10 {
                 println!("{} spawned thread", i);
-                thread::sleep(Duration::from_millis(50));
+                thread::sleep(Duration::from_millis(500));
             }
         });
+        // the following code would be blocked the main thread
         handler.join().unwrap();
         for i in 100..105 {
             println!("{} thread", i);
@@ -56,16 +57,32 @@ mod tests {
     fn mpsc_4() {
         let (tx, rx) = mpsc::channel();
         let handler = thread::spawn(move || {
+            thread::sleep(Duration::from_millis(10000));
             for i in 1..10 {
                 println!("sended: {}", i);
-                tx.send(i * i).unwrap();
+                match tx.send(i * i) {
+                    Ok(_) => {
+                        println!("Yes the data has been sent successfully");
+                    }
+                    Err(e) => {
+                        println!("failed to send the data");
+                    }
+                };
+                thread::sleep(Duration::from_millis(1000));
+                // tx.send(i * i).unwrap();
                 // thread::sleep(Duration::from_millis(2000));
             }
         });
-
-        for i in 1..10 {
-            thread::sleep(Duration::from_millis(1000));
-            println!("rec:{}", rx.recv().unwrap());
+        // understand the err branch reason.
+        loop {
+            match rx.recv() {
+                Ok(val) => {
+                    println!("rec:{}", val);
+                }
+                Err(_) => {
+                    panic!("can not accept val");
+                }
+            }
         }
     }
 

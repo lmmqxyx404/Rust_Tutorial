@@ -15,4 +15,5 @@ members = [
     "rust_quiz",
     "tokio_stream",
     "tokio_redis_mini",
+    "tokio_channel",
 ]

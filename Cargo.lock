@@ -1258,6 +1258,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "tokio_channel"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "tokio",
+]
+
+[[package]]
 name = "tokio_redis_mini"
 version = "0.1.0"
 dependencies = [
