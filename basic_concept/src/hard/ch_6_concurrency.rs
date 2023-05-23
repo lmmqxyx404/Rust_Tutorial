@@ -55,6 +55,7 @@ mod tests {
 
     #[test]
     fn mpsc_4() {
+        // pay attention to the mpsc that send() returns Ok() not means that the receiver can receive the relative information.
         let (tx, rx) = mpsc::channel();
         let handler = thread::spawn(move || {
             thread::sleep(Duration::from_millis(10000));
@@ -109,6 +110,8 @@ mod tests {
             });
             handles.push(handle);
         }
+        // can read the intial value,but can not guarantee the 
+        thread::sleep(Duration::from_secs(2));
         println!("Result is: {}", *counter.lock().unwrap());
 
         for handle in handles {
