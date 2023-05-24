@@ -13,7 +13,7 @@ async fn say(i: u64) {
 }
 
 // The synchronous task will be executed in priority order.
-// Only meet the await keyword, then the task will be 
+// Only meet the await keyword, then the task will be
 async fn execute() {
     let mut tasks = Vec::new();
     for i in 3..8 {

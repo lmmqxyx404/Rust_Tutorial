@@ -17,4 +17,5 @@ members = [
     "tokio_redis_mini",
     "tokio_channel",
     "tokio_multi_listener",
+    "websocket",
 ]
