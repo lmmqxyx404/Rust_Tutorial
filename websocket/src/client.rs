@@ -23,7 +23,7 @@ async fn main() {
         .nth(1)
         .unwrap_or_else(|| panic!("this program requires at least one argument"));
     */
-    let connect_addr = "ws://127.0.0.1:9111";
+    let connect_addr = "ws://127.0.0.1:9111/asdfgh";
 
     let url = match url::Url::parse(&connect_addr) {
         Ok(r) => r,

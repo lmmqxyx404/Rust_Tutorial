@@ -13,6 +13,10 @@ path = "src/server.rs"
 name = "client"
 path = "src/client.rs"
 
+[[bin]]
+name = "server-header"
+path = "src/server-header.rs"
+
 [dependencies]
 tokio = { version = "1.*", features = ["full"] }
 tungstenite = "0.14.0"
