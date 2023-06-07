@@ -34,14 +34,17 @@ async fn main() {
 }
 
 async fn server() {
+    // 1. listen to the tcp port 
     let server = TcpListener::bind("127.0.0.1:8080").await.unwrap();
-
+    // 2. get the stream and each stream could be considered as a task.
     while let Ok((stream, _)) = server.accept().await {
         tokio::spawn(accept_connection(stream));
     }
 }
 
+// 2. deal with th TcpStream
 async fn accept_connection(stream: TcpStream) {
+    // define the callback 
     let callback = |req: &Request, mut response: Response| {
         debug!("Received a new ws handshake");
         debug!("The request's path is: {}", req.uri().path());
@@ -55,11 +58,13 @@ async fn accept_connection(stream: TcpStream) {
 
         Ok(response)
     };
+    // 2.1 get the ws stream
     let mut ws_stream = accept_hdr_async(stream, callback)
         .await
         .expect("Error during the websocket handshake occurred");
     let mut hash_buf = [0u8; 56];
     // let len = ws_stream.read(&mut hash_buf).await?;
+    // 2.2 parse the ws_stream and send the relative info
     while let Some(msg) = ws_stream.next().await {
         let msg = msg.unwrap();
         info!("msg is {}", msg);
