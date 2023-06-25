@@ -1,6 +1,3 @@
-
-
-
 use std::rc::Rc;
 
 struct A;

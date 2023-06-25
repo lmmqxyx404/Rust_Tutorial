@@ -2,7 +2,7 @@ trait Trait {
     fn f(&self);
 }
 
-impl Trait for  u32 {
+impl Trait for u32 {
     fn f(&self) {
         print!("1");
     }
