@@ -58,3 +58,14 @@ fn hello() {
     *c.borrow_mut() = 2;
     assert_eq!((*c).take(), 2);
 }
+
+#[test]
+fn r_ref() {
+    let mut a = 15;
+    change_ref(&mut a);
+    assert_eq!(a, 60);
+}
+
+fn change_ref(a: &mut i32) {
+    *a += 45;
+}
