@@ -18,4 +18,5 @@ members = [
     "tokio_channel",
     "tokio_multi_listener",
     "websocket",
+    "poem_tutorial",
 ]

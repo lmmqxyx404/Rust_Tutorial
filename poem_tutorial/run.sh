@@ -1,0 +1,1 @@
+RUST_LOG=debug cargo-watch -x 'run --bin server-header'

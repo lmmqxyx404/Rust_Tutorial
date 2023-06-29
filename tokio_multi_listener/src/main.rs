@@ -1,21 +1,33 @@
-use std::time::Duration;
+use std::{collections::HashMap, fmt::format, time::Duration};
 
 /*
 In this example, the `producer()` task sends integers to the `consumer()` task through an `mpsc` channel. The `channel()` function creates an `mpsc::Sender` and an `mpsc::Receiver` with a buffer size of 10. The `producer_task` and `consumer_task` are spawned using `tokio::spawn()`, and their handles are awaited at the end of the `main()` function.
 */
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
-use tokio::sync::mpsc;
+use actix_web::{get, post, rt, web, App, HttpResponse, HttpServer, Responder};
+use tokio::sync::mpsc::{self, Sender};
 // Define a message type to send between tasks
 #[derive(Debug)]
 struct Message {
     relative: String,
 }
 
-// Define a handler function for the GET request
-async fn manual_hello() -> impl Responder {
-    HttpResponse::Ok().body("Hey there!")
+#[get("/")]
+async fn hello(
+    tx: web::Data<Sender<Message>>,
+    query: web::Query<HashMap<String, String>>,
+) -> impl Responder {
+    let mut msg = Message {
+        relative: "aaa".to_string(),
+    };
+    if let Some(str) = query.get("name") {
+        msg.relative = str.clone();
+    }
+    let p = msg.relative.clone();
+    tx.send(msg).await.unwrap();
+    HttpResponse::Ok().body(format!("hello {}", p))
 }
 
+// Define a handler function for the GET request
 #[post("/echo")]
 async fn echo(req_body: String) -> impl Responder {
     HttpResponse::Ok().body(req_body)
@@ -27,7 +39,7 @@ async fn build_server() {
     // let (tx, rx) = mpsc::channel(10);
 
     // Spawn the worker task
-    // tokio::spawn(worker(rx));
+    // tokio::spawn(worker(rx));2
 
     // Start the HTTP server
     HttpServer::new(move || {
@@ -71,13 +83,14 @@ async fn consumer(mut rx: mpsc::Receiver<i32>) {
         println!("Received {}", i);
     }
 }
+
 async fn worker(mut rx: mpsc::Receiver<Message>) {
     while let Some(message) = rx.recv().await {
         // Do some work with the received message
         println!("Received message: {:?}", message);
     }
 }
-
+/*
 // Define a handler function for the GET request
 #[get("/{relative}")]
 async fn index(
@@ -91,6 +104,14 @@ async fn index(
     // Respond with a message indicating that the message has been sent
     HttpResponse::Ok().body("Message sent")
 }
+*/
+
+async fn build_a_server() -> std::io::Result<()> {
+    HttpServer::new(|| App::new().service(hello))
+        .bind("127.0.0.1:9999")?
+        .run()
+        .await
+}
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -101,14 +122,19 @@ async fn main() -> std::io::Result<()> {
     tokio::spawn(worker(rx));
 
     // Start the HTTP server
-    HttpServer::new(move || {
-        App::new()
-            .service(index) // Register the handler function for the GET request
-            .data(tx.clone()) // Pass a clone of the sender to the handler function
-    })
-    .bind("127.0.0.1:8080")? // Bind the server to localhost on port 8080
-    .run()
-    .await
+    rt::spawn(async move {
+        HttpServer::new(move || {
+            App::new()
+                .service(hello) // Register the handler function for the GET request
+                .app_data(web::Data::new(tx.clone())) // Pass a clone of the sender to the handler function
+        })
+        .bind("127.0.0.1:8080")
+        .unwrap() // Bind the server to localhost on port 8080
+        .run()
+        .await
+    });
+
+    loop {}
     /* let producer_task = tokio::spawn(producer(tx));
     let consumer_task = tokio::spawn(consumer(rx));
 
