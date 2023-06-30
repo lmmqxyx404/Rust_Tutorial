@@ -15,6 +15,6 @@ async fn build_a_server() -> Result<(), std::io::Error> {
 #[tokio::main]
 async fn main() -> Result<(), std::io::Error> {
     let fu = build_a_server();
-    
-    fu.await
+    tokio::spawn(fu);
+    loop {}
 }
