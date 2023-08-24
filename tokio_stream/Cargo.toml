@@ -8,3 +8,19 @@ edition = "2021"
 [dependencies]
 # chrono = "0.4.24"
 tokio = {version = "1.4", features = ["full"]}
+
+[[bin]]
+name = "tcp_server"
+path = "src/tcp_server.rs"
+
+[[bin]]
+name = "tcp_client"
+path = "src/tcp_client.rs"
+
+[[bin]]
+name = "udp_server"
+path = "src/udp_server.rs"
+
+[[bin]]
+name = "udp_client"
+path = "src/udp_client.rs"
