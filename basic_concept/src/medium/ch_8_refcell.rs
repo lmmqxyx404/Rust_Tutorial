@@ -54,3 +54,16 @@ fn ch_8_refcell() {
     // assert_eq!(dd.take(), 0)
     // assert_eq!(6, );
 }
+
+use crate::easy::ch_4_struct::*;
+
+#[test]
+fn ch_8_refcell_again() {
+    let p = Point { x: 0.1, y: 0.5 };
+    assert_eq!(p.x, 0.1);
+    /* let mut ll = line {
+        start_point: p,
+        end_point: Point { x: 0.1, y: 0.5 },
+    };
+     ll.start_point.y = 2.2; */
+}

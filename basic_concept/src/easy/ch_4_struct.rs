@@ -7,13 +7,23 @@
  * @Description:
  * struct initialize must bu named the key. also you can name a same name variable
  */
-struct Point {
-    x: f32,
-    y: f32,
+pub struct Point {
+    pub x: f32,
+    pub y: f32,
+}
+
+pub struct line {
+    pub start_point: Point,
+    pub end_point: Point,
 }
 
 #[test]
 fn valid() {
     let p = Point { x: 0.1, y: 0.5 };
-    assert_eq!(1u8, 1u8);
+    let mut ll = line {
+        start_point: p,
+        end_point: Point { x: 0.1, y: 0.5 },
+    };
+    ll.start_point.y = 2.2;
+    assert_eq!(ll.start_point.x, 0.1);
 }
