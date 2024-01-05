@@ -1,0 +1,11 @@
+[package]
+name = "tls_ja3"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ja3 = { git = "https://github.com/jabedude/ja3-rs" }
+reqwest= "*"
+tokio = { version = "1.*", features = ["full"] }
