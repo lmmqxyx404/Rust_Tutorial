@@ -12,7 +12,7 @@ fn middle_thread() {
     let handle = thread::spawn(|| {
         for i in 0..10 {
             println!("{} from the spawned thread", i);
-            thread::sleep(Duration::from_millis(1));
+            thread::sleep(Duration::from_millis(1000));
         }
     });
     for i in 'a'..'f' {
@@ -20,5 +20,5 @@ fn middle_thread() {
         thread::sleep(Duration::from_millis(100));
     }
     println!("The module is about middle knowledge");
-    handle.join().unwrap();
+    // handle.join().unwrap();
 }

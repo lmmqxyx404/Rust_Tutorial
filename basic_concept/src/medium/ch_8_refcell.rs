@@ -55,15 +55,41 @@ fn ch_8_refcell() {
     // assert_eq!(6, );
 }
 
-use crate::easy::ch_4_struct::*;
+#[derive(Clone, Copy)]
+struct Point {
+    pub x: f32,
+    pub y: f32,
+}
 
+struct line {
+    pub start_point: Rc<RefCell<Point>>,
+    pub end_point: Rc<RefCell<Point>>,
+}
 #[test]
 fn ch_8_refcell_again() {
-    let p = Point { x: 0.1, y: 0.5 };
-    assert_eq!(p.x, 0.1);
-    /* let mut ll = line {
-        start_point: p,
-        end_point: Point { x: 0.1, y: 0.5 },
+    let p = Rc::new(RefCell::new(Point { x: 0.1, y: 0.5 }));
+
+    let mut ll = line {
+        start_point: p.clone(),
+        end_point: p.clone(),
     };
-     ll.start_point.y = 2.2; */
+    assert_eq!(p.borrow().x, 0.1);
+    let mut q = (*p.borrow()).clone();
+    q.x = 0.2;
+    assert_eq!(p.borrow().x, 0.1);
+    ll.end_point.borrow_mut().y = 2.2;
+    assert_eq!(ll.end_point.borrow().y, 2.2);
+    p.borrow_mut().y = 2.3;
+    assert_eq!(ll.end_point.borrow().y, 2.3);
+}
+
+#[test]
+fn ch_8_rc_again() {
+    let mut p = Rc::new(Point { x: 0.1, y: 0.5 });
+    assert_eq!(p.x, 0.1);
+    let mut q = p.clone();
+    assert_eq!(p.x, q.x);
+    
+    p = Rc::new(*q);
+    // assert_eq!(q.x, 2.2);
 }
