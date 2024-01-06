@@ -3,6 +3,7 @@ struct Book {
     pub index: i32,
 }
 
+// struct Index(i32);
 fn print_book_name(b: &mut Book) {
     // can not compile.
     // let name = b.name;
