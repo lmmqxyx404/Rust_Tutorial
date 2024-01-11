@@ -9,3 +9,17 @@ Rust区分了借用(borrow)和拥有(own)两个概念：
  - 如果你是这个值的owner，那么你可以对它做任何事，并且负责最后释放它；
  - 如果你只是共享借用（引用），那么你只能读，不能改变它；
  - 如果你拥有的是可变引用，那么可以修改这个值，但你不能move或者destroy这个值(统称转移ownership)。
+
+## 3. organize the code
+pub(crate) mod modname
+pub use modname.
+change the order
+
+## 4.about Cell UnsafeCell RefCell
+- Cell: use replace fn to replace the old value.And is only for Copy trait
+- UnsafeCell provice an unsafe fn so that can transfer a shared ref to a mut ref.
+- RefCell provide the clone trait for interior mutability.
+
+## 5.trait safety
+
+## 6.Pin
