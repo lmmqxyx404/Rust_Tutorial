@@ -20,4 +20,6 @@ members = [
     "websocket",
     "poem_tutorial",
     "tls_ja3",
+    "dns_lookup",
+    "file_server",
 ]
