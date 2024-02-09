@@ -23,3 +23,9 @@ members = [
     "dns_lookup",
     "file_server",
 ]
+
+# Optimization settings for release profile
+[profile.release]
+opt-level = 'z'  # Optimize for size
+lto = true       # Enable link time optimization for further size reduction
+codegen-units = 1  # Improve optimizations at the cost of compilation time

@@ -21,7 +21,8 @@ async fn main() {
     let files = warp::fs::dir(dir);
 
     // Start the server
+    // think more about the different server address
     warp::serve(files)
-        .run(([127, 0, 0, 1], 3030))
+        .run(([0, 0, 0, 0], 3030))
         .await;
 }
