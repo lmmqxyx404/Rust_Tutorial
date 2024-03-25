@@ -15,14 +15,21 @@ fn main() {
     }
 }
 
+/// 将字符串转为数字
+fn string_to_num(str: String) -> Vec<i32> {
+    // let str = "0-23-65281-10-11-35-16-5-13-18-51-45-43-27-21".to_string();
+    let vv: Vec<&str> = str.split('-').collect();
+    let nums: Vec<Result<i32, _>> = vv.iter().map(|x| x.parse::<i32>()).collect();
+    return nums.iter().map(|x| x.clone().unwrap_or(-1)).collect();
+}
+
+#[cfg(test)]
 mod tests {
+    use crate::string_to_num;
 
     #[test]
     fn test_for_ja3() {
-        let str = "0-23-65281-10-11-35-16-5-13-18-51-45-43-27-21".to_string();
-        let vv: Vec<&str> = str.split('-').collect();
-        let nums: Vec<Result<i32, _>> = vv.iter().map(|x| x.parse::<i32>()).collect();
-        let nums: Vec<i32> = nums.iter().map(|x| x.clone().unwrap_or(-1)).collect();
+        let nums = string_to_num("0-23-65281-10-11-35-16-5-13-18-51-45-43-27-21".to_string());
         println!("{:?}", nums);
     }
 }
