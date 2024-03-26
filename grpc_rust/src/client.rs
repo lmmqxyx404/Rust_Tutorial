@@ -1,6 +1,8 @@
 use tokio::time::{sleep, Duration};
 
-// use hero::hero_client::hero_client;
+use hero::heroes_service_client::HeroesServiceClient;
+use hero::Hero;
+
 use records::recorder_client::RecorderClient;
 use records::RecordRequest;
 use tonic::Request;
@@ -16,6 +18,7 @@ pub mod hero {
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Starting client...");
     let mut client = RecorderClient::connect("http://127.0.0.1:60000").await?;
+    // let mut client2 = HeroesServiceClient::connect("http://127.0.0.1:60000").await?;
     // let mut client2=
     let mut counter = 1;
     loop {
