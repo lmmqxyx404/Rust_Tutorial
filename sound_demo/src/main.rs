@@ -27,11 +27,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let tx = tx_clone.clone();
             // 在回调中克隆数据，以避免生命周期问题
             let data_clone = data.to_vec();
-            tokio::spawn(async move {
-                if let Err(err) = tx.send(data_clone).await {
-                    eprintln!("发送音频数据时出错: {}", err);
-                }
-            });
+            tokio::runtime::Runtime::new()
+                .unwrap()
+                .block_on(async move {
+                    if let Err(err) = tx.send(data_clone).await {
+                        eprintln!("发送音频数据时出错: {}", err);
+                    }
+                });
         },
         move |err| {
             eprintln!("录音过程中出错: {}", err);
