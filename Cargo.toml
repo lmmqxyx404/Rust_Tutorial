@@ -22,6 +22,7 @@ members = [
     "tls_ja3",
     "dns_lookup",
     "file_server",
+    "sound_demo",
 ]
 
 # Optimization settings for release profile
