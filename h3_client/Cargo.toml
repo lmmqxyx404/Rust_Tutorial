@@ -1,0 +1,9 @@
+[package]
+name = "h3_client"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+h3 = "0.0.6"
+h3-quinn = "0.0.7"
+http = { version = "1.1" }
